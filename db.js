@@ -3,7 +3,7 @@ const mongoURI = "mongodb+srv://oshapandey8:CAlJc3g0MKtFkrAz@cluster1.vo9r1fc.mo
 
 const connectToDB = async () => {
   try {
-    await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true,serverSelectionTimeoutMS: 30000 });
     console.log("Connected to MongoDB");
 
     const foodItemsCollection = mongoose.connection.db.collection("food_items");
